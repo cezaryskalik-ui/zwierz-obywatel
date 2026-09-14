@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zwierz Obywatel – Zdrowie Twojego Pupila</title>
-    <!-- Import czcionki Alan Sans / Montserrat / Inter jako elegancki sans-serif -->
+    <!-- Import czcionki Montserrat -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;1,300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             box-sizing: border-box;
@@ -16,26 +16,38 @@
         }
 
         body {
-            font-family: 'Montserrat', 'Alan Sans', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            background: #080a14 url('https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?q=80&w=2000&auto=format&fit=crop') no-repeat center center/cover;
+            /* Ciemnogranatowe tło z prześwitem niebieskiego */
+            background: radial-gradient(circle at center, #0f2042 0%, #040814 100%);
             color: #ffffff;
             text-align: center;
             position: relative;
             overflow: hidden;
         }
 
-        /* Przyciemniająca nakładka na tło */
-        .overlay {
+        /* Gwiazdy (kropki w tle) */
+        .stars {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at center, rgba(8, 10, 20, 0.75) 0%, rgba(5, 6, 12, 0.95) 100%);
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, #ffffff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 90px 40px, #ffffff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 160px 120px, rgba(255,255,255,0.9), rgba(0,0,0,0)),
+                radial-gradient(1.5px 1.5px at 230px 190px, #ffffff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 300px 60px, rgba(255,255,255,0.7), rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 370px 150px, #ffffff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 450px 80px, rgba(255,255,255,0.9), rgba(0,0,0,0));
+            background-repeat: repeat;
+            background-size: 500px 500px;
+            opacity: 0.6;
             z-index: 1;
         }
 
@@ -43,17 +55,17 @@
             position: relative;
             z-index: 2;
             padding: 20px;
-            max-width: 800px;
+            max-width: 900px;
             width: 100%;
         }
 
-        /* Logo */
+        /* Logo 4x większe (720px zamiast 180px) */
         .logo {
-            width: 180px;
-            max-width: 60vw;
+            width: 720px;
+            max-width: 90vw;
             height: auto;
             margin-bottom: 25px;
-            filter: drop-shadow(0px 4px 20px rgba(40, 80, 220, 0.25));
+            filter: drop-shadow(0px 4px 25px rgba(30, 100, 255, 0.3));
         }
 
         /* Tytuły */
@@ -66,11 +78,12 @@
             color: #ffffff;
         }
 
+        /* Napis: prosta czcionka, biały kolor */
         p.subtitle {
             font-size: 1.25rem;
-            font-weight: 300;
-            font-style: italic;
-            color: #c0cbef;
+            font-weight: 400;
+            font-style: normal;
+            color: #ffffff;
             margin-bottom: 40px;
             letter-spacing: 1px;
         }
@@ -84,7 +97,7 @@
         }
 
         .timer-box {
-            background: rgba(255, 255, 255, 0.04);
+            background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(10px);
             border-radius: 12px;
@@ -126,7 +139,8 @@
 </head>
 <body>
 
-    <div class="overlay"></div>
+    <!-- Kropki jako gwiazdy w tle -->
+    <div class="stars"></div>
 
     <div class="container">
         <!-- Logo -->
@@ -139,7 +153,7 @@
         <!-- Licznik -->
         <div class="countdown">
             <div class="timer-box">
-                <div class="number" id="days">200</div>
+                <div class="number" id="days">00</div>
                 <div class="label">Dni</div>
             </div>
             <div class="timer-box">
@@ -158,9 +172,8 @@
     </div>
 
     <script>
-        // Data docelowa: 200 dni od dzisiaj
-        const targetDate = new Date();
-        targetDate.setDate(targetDate.getDate() + 200);
+        // Stała data docelowa: 133 dni i 23 godziny od chwili zapisu
+        const targetDate = new Date("2027-01-25T23:17:38").getTime();
 
         function updateCountdown() {
             const now = new Date().getTime();
@@ -187,6 +200,6 @@
 
         setInterval(updateCountdown, 1000);
         updateCountdown();
-        </script>
+    </script>
 </body>
 </html>
