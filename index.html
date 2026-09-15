@@ -24,34 +24,27 @@
             color: #ffffff;
             text-align: center;
             position: relative;
-            background-color: #040814;
             overflow-x: hidden;
-        }
-
-        /* 1. WARSTWA GWIAZD PRZYPIĘTA NA STAŁE W TLE */
-        .stars {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
+            background-color: #030611;
+            /* GWIAZDY (KROPKI W TLE) + GRANATOWE PODŚWIETLENIE NA STAŁE W BODY */
             background-image: 
+                radial-gradient(circle at 50% 30%, #0d1b3a 0%, #030611 90%),
                 radial-gradient(2px 2px at 20px 30px, #ffffff, rgba(0,0,0,0)),
-                radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), rgba(0,0,0,0)),
-                radial-gradient(1px 1px at 90px 40px, #ffffff, rgba(0,0,0,0)),
-                radial-gradient(2px 2px at 160px 120px, rgba(255,255,255,0.9), rgba(0,0,0,0)),
-                radial-gradient(1.5px 1.5px at 230px 190px, #ffffff, rgba(0,0,0,0)),
-                radial-gradient(2px 2px at 300px 60px, rgba(255,255,255,0.7), rgba(0,0,0,0)),
-                radial-gradient(1px 1px at 370px 150px, #ffffff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 50px 160px, rgba(255,255,255,0.9), rgba(0,0,0,0)),
+                radial-gradient(1.5px 1.5px at 90px 40px, #ffffff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 130px 240px, rgba(255,255,255,0.8), rgba(0,0,0,0)),
+                radial-gradient(1.5px 1.5px at 180px 120px, #ffffff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 230px 190px, rgba(255,255,255,0.9), rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 280px 70px, #ffffff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 340px 150px, rgba(255,255,255,0.7), rgba(0,0,0,0)),
+                radial-gradient(1.5px 1.5px at 390px 280px, #ffffff, rgba(0,0,0,0)),
                 radial-gradient(2px 2px at 450px 80px, rgba(255,255,255,0.9), rgba(0,0,0,0));
-            background-repeat: repeat;
-            background-size: 400px 400px;
-            opacity: 0.65;
-            z-index: 1;
-            pointer-events: none;
+            background-repeat: no-repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat;
+            background-size: 100% 100%, 350px 350px, 350px 350px, 350px 350px, 350px 350px, 350px 350px, 350px 350px, 350px 350px, 350px 350px, 350px 350px, 350px 350px;
+            background-attachment: fixed;
         }
 
-        /* SEKJA 1: HERO (Pełny ekran) */
+        /* SEKCJA 1: HERO (Pełny ekran) */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -61,7 +54,7 @@
             position: relative;
             z-index: 2;
             padding: 40px 20px;
-            background: radial-gradient(circle at 50% 40%, #0f2042 0%, #040814 100%);
+            background: transparent;
         }
 
         .container {
@@ -75,7 +68,7 @@
             max-width: 90vw;
             height: auto;
             margin-bottom: 35px;
-            filter: drop-shadow(0px 4px 25px rgba(30, 100, 255, 0.35));
+            filter: drop-shadow(0px 4px 25px rgba(30, 100, 255, 0.45));
         }
 
         /* Licznik */
@@ -89,17 +82,17 @@
         .timer-box {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px);
             border-radius: 14px;
             padding: 20px 15px;
             min-width: 110px;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
             transition: transform 0.3s ease, border-color 0.3s ease;
         }
 
         .timer-box:hover {
             transform: translateY(-3px);
-            border-color: rgba(90, 130, 255, 0.4);
+            border-color: rgba(90, 130, 255, 0.5);
         }
 
         .number {
@@ -117,7 +110,7 @@
             color: #8fa0dd;
         }
 
-        /* 3. STRZAŁKA: DUŻA, GRUBA I MINIMALISTYCZNA */
+        /* STRZAŁKA: DUŻA, GRUBA I MINIMALISTYCZNA */
         .scroll-down {
             position: absolute;
             bottom: 40px;
@@ -140,15 +133,15 @@
         }
 
         .scroll-down svg {
-            width: 46px;
-            height: 46px;
+            width: 48px;
+            height: 48px;
             fill: none;
             stroke: #6bb0ff;
             stroke-width: 3.5;
             stroke-linecap: round;
             stroke-linejoin: round;
             animation: bounce 2.2s infinite;
-            filter: drop-shadow(0 0 8px rgba(107, 176, 255, 0.5));
+            filter: drop-shadow(0 0 10px rgba(107, 176, 255, 0.6));
         }
 
         @keyframes bounce {
@@ -157,7 +150,7 @@
             60% { transform: translateY(5px); }
         }
 
-        /* 2. SEKCJA KORZYŚCI: PEŁNOEKRANOWA Z CIEMNIEJSZYM TŁEM */
+        /* SEKCJA 2: KORZYŚCI (Pełny ekran z lekko ciemniejszą nakładką) */
         .benefits-section {
             min-height: 100vh;
             display: flex;
@@ -167,8 +160,9 @@
             position: relative;
             z-index: 2;
             padding: 80px 20px;
-            background: linear-gradient(180deg, #040814 0%, #02040a 40%, #010206 100%);
-            box-shadow: inset 0 20px 40px rgba(0, 0, 0, 0.8);
+            background: rgba(1, 3, 10, 0.6);
+            backdrop-filter: blur(4px);
+            box-shadow: inset 0 30px 50px rgba(0, 0, 0, 0.9);
         }
 
         .benefits-container {
@@ -184,7 +178,7 @@
             text-transform: uppercase;
             margin-bottom: 60px;
             color: #ffffff;
-            text-shadow: 0 0 30px rgba(50, 120, 255, 0.4);
+            text-shadow: 0 0 30px rgba(50, 120, 255, 0.5);
         }
 
         .benefits-grid {
@@ -195,8 +189,8 @@
         }
 
         .benefit-card {
-            background: rgba(10, 18, 38, 0.55);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(10, 18, 38, 0.65);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(16px);
             border-radius: 22px;
             padding: 35px 30px;
@@ -210,12 +204,11 @@
 
         .benefit-card:hover {
             transform: translateY(-8px);
-            border-color: rgba(90, 150, 255, 0.4);
-            box-shadow: 0 20px 45px rgba(20, 80, 220, 0.25);
-            background: rgba(15, 28, 58, 0.7);
+            border-color: rgba(90, 150, 255, 0.5);
+            box-shadow: 0 20px 45px rgba(20, 80, 220, 0.3);
+            background: rgba(15, 28, 58, 0.85);
         }
 
-        /* 4. DUŻE ILUSTRACJE WEKTOROWE ZAMIAST IKON */
         .illustration-box {
             width: 100%;
             height: 140px;
@@ -223,7 +216,7 @@
             justify-content: center;
             align-items: center;
             margin-bottom: 25px;
-            background: radial-gradient(circle at center, rgba(45, 95, 240, 0.12) 0%, rgba(0, 0, 0, 0) 70%);
+            background: radial-gradient(circle at center, rgba(45, 95, 240, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
             border-radius: 16px;
             transition: transform 0.3s ease;
         }
@@ -235,7 +228,7 @@
         .illustration-box svg {
             width: 110px;
             height: 110px;
-            filter: drop-shadow(0 4px 15px rgba(45, 110, 255, 0.3));
+            filter: drop-shadow(0 4px 15px rgba(45, 110, 255, 0.35));
         }
 
         .benefit-card p {
@@ -255,16 +248,13 @@
             .benefit-card { padding: 25px 20px; }
             .illustration-box { height: 110px; }
             .illustration-box svg { width: 90px; height: 90px; }
-            .scroll-down svg { width: 38px; height: 38px; }
+            .scroll-down svg { width: 40px; height: 40px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- 1. PRZYPIĘTA WARSTWA GWIAZD -->
-    <div class="stars"></div>
-
-    <!-- SEKJA 1: HERO CONTAINER -->
+    <!-- SEKCJA 1: HERO CONTAINER -->
     <section class="hero">
         <div class="container">
             <!-- Logo -->
@@ -291,7 +281,7 @@
             </div>
         </div>
 
-        <!-- 3. DUŻA, GRUBA MINIMALISTYCZNA STRZAŁKA -->
+        <!-- STRZAŁKA NAWIGACYJNA -->
         <a href="#benefits" class="scroll-down" aria-label="Przejdź do korzyści">
             <svg viewBox="0 0 24 24">
                 <path d="M6 9l6 6 6-6"/>
@@ -299,22 +289,19 @@
         </a>
     </section>
 
-    <!-- 2. SEKCJA KORZYŚCI: PEŁNOEKRANOWA Z CIEMNIEJSZYM TŁEM -->
+    <!-- SEKCJA 2: KORZYŚCI -->
     <section class="benefits-section" id="benefits">
         <div class="benefits-container">
             <h2 class="section-title">Dlaczego Zwierz Obywatel?</h2>
             <div class="benefits-grid">
 
-                <!-- 4. ILUSTRACJA 1: Smartfon ze profilem psa i pulsem zdrowia -->
+                <!-- ILUSTRACJA 1 -->
                 <div class="benefit-card">
                     <div class="illustration-box">
                         <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Telefon -->
                             <rect x="36" y="12" width="48" height="96" rx="10" fill="#0D1B3E" stroke="#4B8BF5" stroke-width="3"/>
                             <rect x="42" y="24" width="36" height="68" rx="4" fill="#050C1E"/>
-                            <!-- Puls medyczny na ekranie -->
                             <path d="M44 58H52L56 46L62 70L67 54L71 60H76" stroke="#00E5FF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                            <!-- Łapka w tle ekranu -->
                             <circle cx="60" cy="38" r="4" fill="#3A7BD5"/>
                             <circle cx="51" cy="42" r="2.5" fill="#3A7BD5"/>
                             <circle cx="69" cy="42" r="2.5" fill="#3A7BD5"/>
@@ -323,20 +310,16 @@
                     <p>Historia leczenia i profilaktyki zawsze pod ręką. Dostęp w telefonie w każdym miejscu, gdziekolwiek jesteś.</p>
                 </div>
 
-                <!-- ILUSTRACJA 2: Cyfrowa książeczka ze stemplem i łapką -->
+                <!-- ILUSTRACJA 2 -->
                 <div class="benefit-card">
                     <div class="illustration-box">
                         <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Okładka Książeczki -->
                             <path d="M28 20C28 16.6863 30.6863 14 34 14H86C89.3137 14 92 16.6863 92 20V100C92 103.314 89.3137 106 86 106H34C30.6863 106 28 103.314 28 100V20Z" fill="#0B1736" stroke="#4B8BF5" stroke-width="3"/>
-                            <!-- Grzbiet -->
                             <path d="M36 14V106" stroke="#2D5FF0" stroke-width="3"/>
-                            <!-- Sylwetka łapki -->
                             <path d="M60 64C65.5228 64 70 59.5228 70 54C70 48.4772 65.5228 44 60 44C54.4772 44 50 48.4772 50 54C50 59.5228 54.4772 64 60 64Z" fill="#00E5FF"/>
                             <circle cx="48" cy="42" r="4" fill="#00E5FF"/>
                             <circle cx="72" cy="42" r="4" fill="#00E5FF"/>
                             <circle cx="60" cy="34" r="4.5" fill="#00E5FF"/>
-                            <!-- Linie tekstu / wpisów -->
                             <line x1="44" y1="78" x2="76" y2="78" stroke="#3A7BD5" stroke-width="3" stroke-linecap="round"/>
                             <line x1="44" y1="88" x2="68" y2="88" stroke="#3A7BD5" stroke-width="3" stroke-linecap="round"/>
                         </svg>
@@ -344,50 +327,40 @@
                     <p>Koniec z odpowiedzią „zapomniałam/-łem” na pytanie lekarza o książeczkę.</p>
                 </div>
 
-                <!-- ILUSTRACJA 3: Buteleczka z tabletkami i zegarek przypomnienia -->
+                <!-- ILUSTRACJA 3 -->
                 <div class="benefit-card">
                     <div class="illustration-box">
                         <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Fiolka z lekiem -->
                             <rect x="26" y="44" width="40" height="56" rx="6" fill="#0B1736" stroke="#4B8BF5" stroke-width="3"/>
                             <rect x="32" y="32" width="28" height="12" rx="3" fill="#2D5FF0"/>
-                            <!-- Krzyż medyczny -->
                             <path d="M46 62V78M38 70H54" stroke="#00E5FF" stroke-width="3.5" stroke-linecap="round"/>
-                            <!-- Zegar / Przypomnienie -->
                             <circle cx="80" cy="50" r="22" fill="#050C1E" stroke="#00E5FF" stroke-width="3"/>
                             <path d="M80 38V50L88 54" stroke="#00E5FF" stroke-width="3" stroke-linecap="round"/>
-                            <!-- Kapsułka -->
                             <rect x="70" y="82" width="24" height="12" rx="6" fill="#3A7BD5" transform="rotate(-30 70 82)"/>
                         </svg>
                     </div>
                     <p>Ułatwienie kontrolowania leczenia chorób przewlekłych i dawkowania leków z przypomnieniami.</p>
                 </div>
 
-                <!-- ILUSTRACJA 4: Tarcza z motywem ochrony oraz szczepionką -->
+                <!-- ILUSTRACJA 4 -->
                 <div class="benefit-card">
                     <div class="illustration-box">
                         <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Tarcza Ochronna -->
                             <path d="M60 16L92 30V60C92 82 78 98 60 106C42 98 28 82 28 60V30L60 16Z" fill="#0B1736" stroke="#4B8BF5" stroke-width="3"/>
-                            <!-- Strzykawka/Ochrona wewnątrz -->
                             <path d="M60 36V70" stroke="#00E5FF" stroke-width="4" stroke-linecap="round"/>
                             <path d="M48 48H72" stroke="#00E5FF" stroke-width="3.5" stroke-linecap="round"/>
-                            <!-- Ptastkowy Checkmark -->
                             <path d="M48 64L56 72L74 52" stroke="#00E5FF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </div>
                     <p>Przypomnienia o podawaniu ochrony przeciw pasożytom zewnętrznym i wewnętrznym oraz szczepieniach.</p>
                 </div>
 
-                <!-- ILUSTRACJA 5: Teczka/Folder z porządkowanym zbiorem dokumentów -->
+                <!-- ILUSTRACJA 5 -->
                 <div class="benefit-card">
                     <div class="illustration-box">
                         <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Folder z dokumentami -->
                             <path d="M20 38C20 33.5817 23.5817 30 28 30H48L56 40H92C96.4183 40 100 43.5817 100 48V90C100 94.4183 96.4183 98 92 98H28C23.5817 98 20 94.4183 20 90V38Z" fill="#0B1736" stroke="#4B8BF5" stroke-width="3"/>
-                            <!-- Wycinek kartki wyłaniającej się -->
                             <rect x="36" y="20" width="48" height="30" rx="4" fill="#162B5A" stroke="#3A7BD5" stroke-width="2"/>
-                            <!-- Spinacz / Klips medyczny -->
                             <circle cx="60" cy="70" r="14" fill="#050C1E" stroke="#00E5FF" stroke-width="3"/>
                             <path d="M54 70L58 74L66 64" stroke="#00E5FF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
@@ -400,7 +373,7 @@
     </section>
 
     <script>
-        // Stała data docelowa: 133 dni i 23 godziny od chwili zapisu
+        // Stała data docelowa: 133 dni i 23 godziny od momentu wyliczenia
         const targetDate = new Date("2027-01-25T23:17:38").getTime();
 
         function updateCountdown() {
