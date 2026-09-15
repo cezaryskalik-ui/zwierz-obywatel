@@ -7,7 +7,7 @@
     <!-- Import czcionki Montserrat -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             box-sizing: border-box;
@@ -22,12 +22,10 @@
         body {
             font-family: 'Montserrat', sans-serif;
             min-height: 100vh;
-            background: #040814;
             color: #ffffff;
             text-align: center;
             position: relative;
             overflow-x: hidden;
-            /* Ciemnogranatowe tło z prześwitem niebieskiego i gwiazdami */
             background-color: #040814;
             background-image: 
                 radial-gradient(circle at 50% 30%, #0f2042 0%, #040814 80%),
@@ -149,7 +147,7 @@
             position: relative;
             z-index: 2;
             padding: 80px 20px 120px 20px;
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
@@ -158,64 +156,86 @@
             font-weight: 700;
             letter-spacing: 2px;
             text-transform: uppercase;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
             color: #ffffff;
-            text-shadow: 0 0 20px rgba(40, 90, 240, 0.4);
+            text-shadow: 0 0 25px rgba(40, 110, 255, 0.5);
         }
 
         .benefits-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            justify-content: center;
         }
 
         .benefit-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(12px);
-            border-radius: 16px;
-            padding: 30px 25px;
+            background: rgba(15, 25, 50, 0.45);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(16px);
+            border-radius: 20px;
+            padding: 35px 30px;
             text-align: left;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+            transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
             display: flex;
             flex-direction: column;
             align-items: flex-start;
         }
 
         .benefit-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(90, 130, 255, 0.4);
-            box-shadow: 0 15px 35px rgba(25, 70, 180, 0.2);
+            transform: translateY(-8px);
+            border-color: rgba(90, 145, 255, 0.5);
+            box-shadow: 0 20px 45px rgba(25, 90, 230, 0.25);
+            background: rgba(20, 35, 70, 0.55);
         }
 
         .icon-wrapper {
-            width: 55px;
-            height: 55px;
-            background: rgba(90, 130, 255, 0.1);
-            border: 1px solid rgba(90, 130, 255, 0.25);
-            border-radius: 12px;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, rgba(40, 90, 230, 0.25) 0%, rgba(15, 30, 70, 0.4) 100%);
+            border: 1px solid rgba(90, 150, 255, 0.4);
+            border-radius: 16px;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 0 20px rgba(35, 100, 250, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover .icon-wrapper {
+            transform: scale(1.08);
+            border-color: rgba(120, 175, 255, 0.8);
+            box-shadow: 0 0 30px rgba(50, 130, 255, 0.4);
+            background: linear-gradient(135deg, rgba(50, 110, 255, 0.35) 0%, rgba(20, 45, 100, 0.6) 100%);
         }
 
         .icon-wrapper svg {
-            width: 28px;
-            height: 28px;
-            stroke: #8fa0dd;
-            stroke-width: 2;
+            width: 38px;
+            height: 38px;
+            stroke: #6bb0ff;
+            stroke-width: 1.8;
             stroke-linecap: round;
             stroke-linejoin: round;
             fill: none;
+            transition: stroke 0.3s ease;
+        }
+
+        .benefit-card:hover .icon-wrapper svg {
+            stroke: #a3d0ff;
         }
 
         .benefit-card p {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: #d1d8f0;
+            font-size: 1.05rem;
+            line-height: 1.65;
+            color: #dbe4ff;
             font-weight: 400;
+        }
+
+        @media (max-width: 768px) {
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 600px) {
@@ -223,8 +243,10 @@
             .timer-box { min-width: 75px; padding: 15px 8px; }
             .number { font-size: 1.8rem; }
             .label { font-size: 0.65rem; }
-            .section-title { font-size: 1.6rem; }
-            .benefit-card { padding: 20px 18px; }
+            .section-title { font-size: 1.5rem; margin-bottom: 40px; }
+            .benefit-card { padding: 25px 20px; }
+            .icon-wrapper { width: 60px; height: 60px; margin-bottom: 18px; }
+            .icon-wrapper svg { width: 32px; height: 32px; }
         }
     </style>
 </head>
@@ -270,60 +292,64 @@
         <h2 class="section-title">Dlaczego Zwierz Obywatel?</h2>
         <div class="benefits-grid">
 
-            <!-- Korzyść 1 -->
+            <!-- Korzyść 1: Telefon + Medycyna -->
             <div class="benefit-card">
                 <div class="icon-wrapper">
                     <svg viewBox="0 0 24 24">
-                        <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
-                        <line x1="12" y1="18" x2="12.01" y2="18"/>
+                        <rect x="5" y="2" width="14" height="20" rx="3" ry="3"/>
+                        <path d="M12 7v6"/>
+                        <path d="M9 10h6"/>
+                        <path d="M10 18h4"/>
                     </svg>
                 </div>
                 <p>Historia leczenia i profilaktyki zawsze pod ręką. Dostęp w telefonie w każdym miejscu, gdziekolwiek jesteś.</p>
             </div>
 
-            <!-- Korzyść 2 -->
+            <!-- Korzyść 2: Książeczka zdrowia + Paw -->
             <div class="benefit-card">
                 <div class="icon-wrapper">
                     <svg viewBox="0 0 24 24">
                         <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
                         <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
-                        <line x1="9" y1="7" x2="15" y2="7"/>
-                        <line x1="9" y1="11" x2="13" y2="11"/>
+                        <path d="M11 7a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
+                        <path d="M15 7a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
+                        <path d="M13 12a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/>
                     </svg>
                 </div>
                 <p>Koniec z odpowiedzią „zapomniałam/-łem” na pytanie lekarza o książeczkę.</p>
             </div>
 
-            <!-- Korzyść 3 -->
+            <!-- Korzyść 3: Leki / Dawkowanie / Przypomnienia -->
             <div class="benefit-card">
                 <div class="icon-wrapper">
                     <svg viewBox="0 0 24 24">
-                        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
-                        <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+                        <path d="M10.5 20.5l10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7z"/>
+                        <path d="M8.5 8.5l7 7"/>
+                        <circle cx="18" cy="18" r="3"/>
+                        <path d="M18 16.5v1.5h1.5"/>
                     </svg>
                 </div>
                 <p>Ułatwienie kontrolowania leczenia chorób przewlekłych i dawkowania leków z przypomnieniami.</p>
             </div>
 
-            <!-- Korzyść 4 -->
+            <!-- Korzyść 4: Tarcza + Strzykawka/Ochrona -->
             <div class="benefit-card">
                 <div class="icon-wrapper">
                     <svg viewBox="0 0 24 24">
                         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        <path d="M9 12l2 2 4-4"/>
                     </svg>
                 </div>
                 <p>Przypomnienia o podawaniu ochrony przeciw pasożytom zewnętrznym i wewnętrznym oraz szczepieniach.</p>
             </div>
 
-            <!-- Korzyść 5 -->
+            <!-- Korzyść 5: Porządek w dokumentach -->
             <div class="benefit-card">
                 <div class="icon-wrapper">
                     <svg viewBox="0 0 24 24">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                        <polyline points="14 2 14 8 20 8"/>
-                        <line x1="16" y1="13" x2="8" y2="13"/>
-                        <line x1="16" y1="17" x2="8" y2="17"/>
-                        <polyline points="10 9 9 9 8 9"/>
+                        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+                        <path d="M12 11v6"/>
+                        <path d="M9 14h6"/>
                     </svg>
                 </div>
                 <p>Rozwiązany problem walających się zaświadczeń i wyników badań w różnych miejscach bądź ich gubienia.</p>
